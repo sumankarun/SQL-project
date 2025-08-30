@@ -1,0 +1,61 @@
+Employees Project SQL. Queries
+
+ 
+---- created table
+--- table name is Employee
+select * from Employee;
+
+--How many employees are there in total?
+Select COUNT(*)total_employee 
+from employee;
+
+--List all employees who joined after 1st jan?
+SELECT employee_id, first_name, last_name, hire_date
+FROM employee
+WHERE hire_date > TO_DATE('2005-01-01', 'YYYY-MM-DD');
+
+--find the highest paid employee.
+
+Select FIRST_NAME, LAST_NAME,SALARY from employee
+where salary = (select Max(salary)from employee);
+
+--Find the average salary of employees in each department.
+SELECT department_id, ROUND(AVG(salary),2) AS avg_salary
+FROM employee
+GROUP BY department_id;
+
+
+--List employees who earn more than 15,000
+select FIRST_NAME, LAST_NAME,SALARY from employee
+where salary > 15000 ;
+
+
+--Find the total salary expense of the company.
+SELECT SUM(salary) AS total_salary_expense
+FROM employee;
+
+
+--Find the number of employees in each job role.
+SELECT job_id, COUNT(*) AS num_employee FROM employee
+GROUP BY job_id;
+
+
+--list employees whose first name starts with 'A'.
+
+SELECT employee_id, first_name, last_name
+FROM employee
+WHERE first_name LIKE 'A%';
+
+
+--Show all employees working in department 90.
+
+SELECT employee_id, first_name, last_name, department_id
+FROM employee
+WHERE department_id = 90;
+
+
+---Display employee sorted by their hire date (oldest first).
+
+SELECT employee_id, first_name, last_name, hire_date
+FROM employee
+ORDER BY hire_date ASC;
