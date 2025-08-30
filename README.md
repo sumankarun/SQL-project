@@ -1,7 +1,7 @@
 # SQL-project
 Details of Employees
 
-MPLOYEE_ID – Unique ID for each employee
+EMPLOYEE_ID – Unique ID for each employee
 
 FIRST_NAME, LAST_NAME – Employee’s full name
 
